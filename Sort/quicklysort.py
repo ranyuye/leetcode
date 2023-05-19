@@ -6,6 +6,8 @@
 <递归的>
 
 """
+from Sort.utils import format_input
+
 
 def quick_sort(arr, start, end):
     """快速排序"""
@@ -29,9 +31,8 @@ def quick_sort(arr, start, end):
 if __name__ == '__main__':
     while True:
         input_str = input('please input a seq which use "," to split or you can input "q" to quit :\n')
-        if input_str == 'q':
+        input_arr = format_input(input_str)
+        if not input_arr:
             break
-        input_arr = input_str.split(',')
-        input_arr = list(map(lambda x: int(x), input_arr))
         quick_sort(input_arr, 0, len(input_arr) - 1)
         print(input_arr)
